@@ -1,0 +1,6 @@
+/Users/user/Documents/Uczelnia/_4Czwarty Semestr/Algorytmy II/Projekty/PR3/build/CMakeFiles/project3.dir
+/Users/user/Documents/Uczelnia/_4Czwarty Semestr/Algorytmy II/Projekty/PR3/build/CMakeFiles/edit_cache.dir
+/Users/user/Documents/Uczelnia/_4Czwarty Semestr/Algorytmy II/Projekty/PR3/build/CMakeFiles/rebuild_cache.dir
+/Users/user/Documents/Uczelnia/_4Czwarty Semestr/Algorytmy II/Projekty/PR3/build/external/libxl/CMakeFiles/copy_libxl_libs.dir
+/Users/user/Documents/Uczelnia/_4Czwarty Semestr/Algorytmy II/Projekty/PR3/build/external/libxl/CMakeFiles/edit_cache.dir
+/Users/user/Documents/Uczelnia/_4Czwarty Semestr/Algorytmy II/Projekty/PR3/build/external/libxl/CMakeFiles/rebuild_cache.dir

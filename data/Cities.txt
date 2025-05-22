@@ -1,0 +1,69 @@
+Barwinek
+Bezledy
+Biała Podlaska
+Białystok
+Bielsko - Biała
+Bydgoszcz
+Chałupki
+Chełm
+Chyżne
+Ciechanów
+Cieszyn
+Częstochowa
+Elbląg
+Gdańsk
+Gorzów Wielkopolski
+Gubin
+Hrebenne
+Jakuszyce
+Jelenia Góra
+Kalisz
+Katowice
+Kielce
+Kołbaskowo
+Konin
+Koszalin
+Kostrzyń
+Kraków
+Krosno
+Kudowa-Słone
+Kuźnica Białostocka
+Legnica
+Leszno
+Lublin
+Łomża
+Łódź
+Medyka
+Nowy Sącz
+Ogrodniki
+Olsztyn
+Olszyna
+Opole
+Ostrołęka
+Piła
+Piotrków Trybunalski
+Płock
+Poznań
+Przemyśl
+Radom
+Rzeszów
+Siedlce
+Sieradz
+Skierniewice
+Słupsk
+Suwałki
+Szczecin
+Świecko
+Świnoujście
+Tarnobrzeg
+Tarnów
+Terespol
+Toruń
+Wałbrzych
+Warszawa
+Włocławek
+Wrocław
+Zakopane
+Zamość
+Zgorzelec
+Zielona Góra
