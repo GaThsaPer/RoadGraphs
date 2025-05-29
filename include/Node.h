@@ -1,11 +1,20 @@
 #pragma once
 
+#include "../include/Vec.h"
 #include <iostream>
 #include <vector>
 #include <string>
 
 namespace node{
-    class CityNode{
+    enum TypeNode{CITY, ROAD};
+    class BaseNode{
+        public:
+            BaseNode() {}
+            virtual ~BaseNode() {}
+        private:
+    };
+
+    class CityNode : public BaseNode{
         public:
             CityNode();
             CityNode(std::string n);
@@ -13,13 +22,15 @@ namespace node{
             void SetCoord(float x, float y);
             void SetCity(std::string str) {name = str;}
             std::string city() {return name;}
+            float GetX() {return Xcoord;}
+            float GetY() {return Ycoord;}
         private:
             std::string name;
             float Xcoord;
             float Ycoord;
     };
 
-    class ConnectionNode{
+    class ConnectionNode : public BaseNode{
         public:
             ConnectionNode();
             ConnectionNode(int f, int s, int c);
@@ -40,10 +51,12 @@ namespace node{
             void setSize(int iSize);
             void setCity(int index, std::string str);
             void setConn(int index, int num, int firstID, int secoundID);
-            int GetCitySize() {return city_size;}
-            int GetConnectionsCount() {return (city_size * (city_size - 1)) / 2;}
+            int GetCitySize() const {return city_size;}
+            int GetConnectionsCount() const {return (city_size * (city_size - 1)) / 2;}
             void ShowAllCities();
             void ShowAllConnections();
+            void ShowCostSortConnections();
+            BaseNode& GetValue(int index, TypeNode type);
             ~Node();
         private:
             int city_size;

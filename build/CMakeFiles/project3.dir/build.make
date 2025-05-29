@@ -114,11 +114,71 @@ CMakeFiles/project3.dir/src/Node.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/project3.dir/src/Node.cpp.s"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/user/Documents/Uczelnia/_4Czwarty Semestr/Algorytmy II/Projekty/PR3/src/Node.cpp" -o CMakeFiles/project3.dir/src/Node.cpp.s
 
+CMakeFiles/project3.dir/src/Roads.cpp.o: CMakeFiles/project3.dir/flags.make
+CMakeFiles/project3.dir/src/Roads.cpp.o: /Users/user/Documents/Uczelnia/_4Czwarty\ Semestr/Algorytmy\ II/Projekty/PR3/src/Roads.cpp
+CMakeFiles/project3.dir/src/Roads.cpp.o: CMakeFiles/project3.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/user/Documents/Uczelnia/_4Czwarty Semestr/Algorytmy II/Projekty/PR3/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/project3.dir/src/Roads.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/project3.dir/src/Roads.cpp.o -MF CMakeFiles/project3.dir/src/Roads.cpp.o.d -o CMakeFiles/project3.dir/src/Roads.cpp.o -c "/Users/user/Documents/Uczelnia/_4Czwarty Semestr/Algorytmy II/Projekty/PR3/src/Roads.cpp"
+
+CMakeFiles/project3.dir/src/Roads.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/project3.dir/src/Roads.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/user/Documents/Uczelnia/_4Czwarty Semestr/Algorytmy II/Projekty/PR3/src/Roads.cpp" > CMakeFiles/project3.dir/src/Roads.cpp.i
+
+CMakeFiles/project3.dir/src/Roads.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/project3.dir/src/Roads.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/user/Documents/Uczelnia/_4Czwarty Semestr/Algorytmy II/Projekty/PR3/src/Roads.cpp" -o CMakeFiles/project3.dir/src/Roads.cpp.s
+
+CMakeFiles/project3.dir/src/Input.cpp.o: CMakeFiles/project3.dir/flags.make
+CMakeFiles/project3.dir/src/Input.cpp.o: /Users/user/Documents/Uczelnia/_4Czwarty\ Semestr/Algorytmy\ II/Projekty/PR3/src/Input.cpp
+CMakeFiles/project3.dir/src/Input.cpp.o: CMakeFiles/project3.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/user/Documents/Uczelnia/_4Czwarty Semestr/Algorytmy II/Projekty/PR3/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/project3.dir/src/Input.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/project3.dir/src/Input.cpp.o -MF CMakeFiles/project3.dir/src/Input.cpp.o.d -o CMakeFiles/project3.dir/src/Input.cpp.o -c "/Users/user/Documents/Uczelnia/_4Czwarty Semestr/Algorytmy II/Projekty/PR3/src/Input.cpp"
+
+CMakeFiles/project3.dir/src/Input.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/project3.dir/src/Input.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/user/Documents/Uczelnia/_4Czwarty Semestr/Algorytmy II/Projekty/PR3/src/Input.cpp" > CMakeFiles/project3.dir/src/Input.cpp.i
+
+CMakeFiles/project3.dir/src/Input.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/project3.dir/src/Input.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/user/Documents/Uczelnia/_4Czwarty Semestr/Algorytmy II/Projekty/PR3/src/Input.cpp" -o CMakeFiles/project3.dir/src/Input.cpp.s
+
+CMakeFiles/project3.dir/src/visualization.cpp.o: CMakeFiles/project3.dir/flags.make
+CMakeFiles/project3.dir/src/visualization.cpp.o: /Users/user/Documents/Uczelnia/_4Czwarty\ Semestr/Algorytmy\ II/Projekty/PR3/src/visualization.cpp
+CMakeFiles/project3.dir/src/visualization.cpp.o: CMakeFiles/project3.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/user/Documents/Uczelnia/_4Czwarty Semestr/Algorytmy II/Projekty/PR3/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/project3.dir/src/visualization.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/project3.dir/src/visualization.cpp.o -MF CMakeFiles/project3.dir/src/visualization.cpp.o.d -o CMakeFiles/project3.dir/src/visualization.cpp.o -c "/Users/user/Documents/Uczelnia/_4Czwarty Semestr/Algorytmy II/Projekty/PR3/src/visualization.cpp"
+
+CMakeFiles/project3.dir/src/visualization.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/project3.dir/src/visualization.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/user/Documents/Uczelnia/_4Czwarty Semestr/Algorytmy II/Projekty/PR3/src/visualization.cpp" > CMakeFiles/project3.dir/src/visualization.cpp.i
+
+CMakeFiles/project3.dir/src/visualization.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/project3.dir/src/visualization.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/user/Documents/Uczelnia/_4Czwarty Semestr/Algorytmy II/Projekty/PR3/src/visualization.cpp" -o CMakeFiles/project3.dir/src/visualization.cpp.s
+
+CMakeFiles/project3.dir/src/Djikstra.cpp.o: CMakeFiles/project3.dir/flags.make
+CMakeFiles/project3.dir/src/Djikstra.cpp.o: /Users/user/Documents/Uczelnia/_4Czwarty\ Semestr/Algorytmy\ II/Projekty/PR3/src/Djikstra.cpp
+CMakeFiles/project3.dir/src/Djikstra.cpp.o: CMakeFiles/project3.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/user/Documents/Uczelnia/_4Czwarty Semestr/Algorytmy II/Projekty/PR3/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/project3.dir/src/Djikstra.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/project3.dir/src/Djikstra.cpp.o -MF CMakeFiles/project3.dir/src/Djikstra.cpp.o.d -o CMakeFiles/project3.dir/src/Djikstra.cpp.o -c "/Users/user/Documents/Uczelnia/_4Czwarty Semestr/Algorytmy II/Projekty/PR3/src/Djikstra.cpp"
+
+CMakeFiles/project3.dir/src/Djikstra.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/project3.dir/src/Djikstra.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/user/Documents/Uczelnia/_4Czwarty Semestr/Algorytmy II/Projekty/PR3/src/Djikstra.cpp" > CMakeFiles/project3.dir/src/Djikstra.cpp.i
+
+CMakeFiles/project3.dir/src/Djikstra.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/project3.dir/src/Djikstra.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/user/Documents/Uczelnia/_4Czwarty Semestr/Algorytmy II/Projekty/PR3/src/Djikstra.cpp" -o CMakeFiles/project3.dir/src/Djikstra.cpp.s
+
 # Object files for target project3
 project3_OBJECTS = \
 "CMakeFiles/project3.dir/src/main.cpp.o" \
 "CMakeFiles/project3.dir/src/DownloadData.cpp.o" \
-"CMakeFiles/project3.dir/src/Node.cpp.o"
+"CMakeFiles/project3.dir/src/Node.cpp.o" \
+"CMakeFiles/project3.dir/src/Roads.cpp.o" \
+"CMakeFiles/project3.dir/src/Input.cpp.o" \
+"CMakeFiles/project3.dir/src/visualization.cpp.o" \
+"CMakeFiles/project3.dir/src/Djikstra.cpp.o"
 
 # External object files for target project3
 project3_EXTERNAL_OBJECTS =
@@ -126,10 +186,16 @@ project3_EXTERNAL_OBJECTS =
 project3: CMakeFiles/project3.dir/src/main.cpp.o
 project3: CMakeFiles/project3.dir/src/DownloadData.cpp.o
 project3: CMakeFiles/project3.dir/src/Node.cpp.o
+project3: CMakeFiles/project3.dir/src/Roads.cpp.o
+project3: CMakeFiles/project3.dir/src/Input.cpp.o
+project3: CMakeFiles/project3.dir/src/visualization.cpp.o
+project3: CMakeFiles/project3.dir/src/Djikstra.cpp.o
 project3: CMakeFiles/project3.dir/build.make
 project3: /Users/user/Documents/Uczelnia/_4Czwarty\ Semestr/Algorytmy\ II/Projekty/PR3/external/libxl/lib/libxl.dylib
+project3: _deps/raylib-build/raylib/libraylib.a
+project3: _deps/raylib-build/raylib/external/glfw/src/libglfw3.a
 project3: CMakeFiles/project3.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/Users/user/Documents/Uczelnia/_4Czwarty Semestr/Algorytmy II/Projekty/PR3/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable project3"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/Users/user/Documents/Uczelnia/_4Czwarty Semestr/Algorytmy II/Projekty/PR3/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable project3"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/project3.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

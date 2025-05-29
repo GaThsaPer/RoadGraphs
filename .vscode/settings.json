@@ -52,6 +52,9 @@
         "memory_resource": "cpp",
         "random": "cpp",
         "utility": "cpp",
-        "cinttypes": "cpp"
+        "cinttypes": "cpp",
+        "queue": "cpp",
+        "deque": "cpp",
+        "list": "cpp"
     }
 }

@@ -1,17 +1,14 @@
 #include <iostream>
-#include "../include/DownloadData.h"
+#include <../include/visualization.h>
+
 
 void PrintVec(const std::vector<std::string> data);
 
 int main(){
-    node::Node graph;
-    DD::Data Dwn(graph);
-
-    node::Node roads;
-
-    // graph.ShowAllConnections();
-    // graph.ShowAllCities();
-
+    window WD;
+    WD.Init();
+    WD.Run();
+    WD.ShutDown();
     return 0;
 }
 

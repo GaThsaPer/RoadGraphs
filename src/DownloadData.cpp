@@ -22,7 +22,7 @@ DD::Data::Data(node::Node &node){
         throw std::runtime_error("\nCan't open Connections data\n");
     iSize = ((iSize * (iSize-1))/2);
     int tempIndex = 0;
-    int xID = 0, yID = 0;
+    int xID = 0, yID = 1;
     while(std::getline(ConnData, line)){
         int iLineSize = line.size();
         while(!line.empty()){

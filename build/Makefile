@@ -65,6 +65,26 @@ CMAKE_BINARY_DIR = "/Users/user/Documents/Uczelnia/_4Czwarty Semestr/Algorytmy I
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target package
+package: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Run CPack packaging tool..."
+	/usr/local/bin/cpack --config ./CPackConfig.cmake
+.PHONY : package
+
+# Special rule for the target package
+package/fast: package
+.PHONY : package/fast
+
+# Special rule for the target package_source
+package_source:
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Run CPack packaging tool for source..."
+	/usr/local/bin/cpack --config ./CPackSourceConfig.cmake /Users/user/Documents/Uczelnia/_4Czwarty\ Semestr/Algorytmy\ II/Projekty/PR3/build/CPackSourceConfig.cmake
+.PHONY : package_source
+
+# Special rule for the target package_source
+package_source/fast: package_source
+.PHONY : package_source/fast
+
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake cache editor..."
@@ -84,6 +104,51 @@ rebuild_cache:
 # Special rule for the target rebuild_cache
 rebuild_cache/fast: rebuild_cache
 .PHONY : rebuild_cache/fast
+
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+.PHONY : list_install_components/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Install the project..."
+	/usr/local/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Install the project..."
+	/usr/local/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing only the local directory..."
+	/usr/local/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing only the local directory..."
+	/usr/local/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing the project stripped..."
+	/usr/local/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing the project stripped..."
+	/usr/local/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -130,6 +195,45 @@ project3/fast:
 .PHONY : project3/fast
 
 #=============================================================================
+# Target rules for targets named raylib
+
+# Build rule for target.
+raylib: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 raylib
+.PHONY : raylib
+
+# fast build rule for target.
+raylib/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/CMakeFiles/raylib.dir/build.make _deps/raylib-build/raylib/CMakeFiles/raylib.dir/build
+.PHONY : raylib/fast
+
+#=============================================================================
+# Target rules for targets named glfw
+
+# Build rule for target.
+glfw: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 glfw
+.PHONY : glfw
+
+# fast build rule for target.
+glfw/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/glfw.dir/build
+.PHONY : glfw/fast
+
+#=============================================================================
+# Target rules for targets named update_mappings
+
+# Build rule for target.
+update_mappings: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 update_mappings
+.PHONY : update_mappings
+
+# fast build rule for target.
+update_mappings/fast:
+	$(MAKE) $(MAKESILENT) -f _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/update_mappings.dir/build.make _deps/raylib-build/raylib/external/glfw/src/CMakeFiles/update_mappings.dir/build
+.PHONY : update_mappings/fast
+
+#=============================================================================
 # Target rules for targets named copy_libxl_libs
 
 # Build rule for target.
@@ -141,6 +245,30 @@ copy_libxl_libs: cmake_check_build_system
 copy_libxl_libs/fast:
 	$(MAKE) $(MAKESILENT) -f external/libxl/CMakeFiles/copy_libxl_libs.dir/build.make external/libxl/CMakeFiles/copy_libxl_libs.dir/build
 .PHONY : copy_libxl_libs/fast
+
+src/Djikstra.o: src/Djikstra.cpp.o
+.PHONY : src/Djikstra.o
+
+# target to build an object file
+src/Djikstra.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project3.dir/build.make CMakeFiles/project3.dir/src/Djikstra.cpp.o
+.PHONY : src/Djikstra.cpp.o
+
+src/Djikstra.i: src/Djikstra.cpp.i
+.PHONY : src/Djikstra.i
+
+# target to preprocess a source file
+src/Djikstra.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project3.dir/build.make CMakeFiles/project3.dir/src/Djikstra.cpp.i
+.PHONY : src/Djikstra.cpp.i
+
+src/Djikstra.s: src/Djikstra.cpp.s
+.PHONY : src/Djikstra.s
+
+# target to generate assembly for a file
+src/Djikstra.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project3.dir/build.make CMakeFiles/project3.dir/src/Djikstra.cpp.s
+.PHONY : src/Djikstra.cpp.s
 
 src/DownloadData.o: src/DownloadData.cpp.o
 .PHONY : src/DownloadData.o
@@ -166,6 +294,30 @@ src/DownloadData.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/project3.dir/build.make CMakeFiles/project3.dir/src/DownloadData.cpp.s
 .PHONY : src/DownloadData.cpp.s
 
+src/Input.o: src/Input.cpp.o
+.PHONY : src/Input.o
+
+# target to build an object file
+src/Input.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project3.dir/build.make CMakeFiles/project3.dir/src/Input.cpp.o
+.PHONY : src/Input.cpp.o
+
+src/Input.i: src/Input.cpp.i
+.PHONY : src/Input.i
+
+# target to preprocess a source file
+src/Input.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project3.dir/build.make CMakeFiles/project3.dir/src/Input.cpp.i
+.PHONY : src/Input.cpp.i
+
+src/Input.s: src/Input.cpp.s
+.PHONY : src/Input.s
+
+# target to generate assembly for a file
+src/Input.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project3.dir/build.make CMakeFiles/project3.dir/src/Input.cpp.s
+.PHONY : src/Input.cpp.s
+
 src/Node.o: src/Node.cpp.o
 .PHONY : src/Node.o
 
@@ -189,6 +341,30 @@ src/Node.s: src/Node.cpp.s
 src/Node.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/project3.dir/build.make CMakeFiles/project3.dir/src/Node.cpp.s
 .PHONY : src/Node.cpp.s
+
+src/Roads.o: src/Roads.cpp.o
+.PHONY : src/Roads.o
+
+# target to build an object file
+src/Roads.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project3.dir/build.make CMakeFiles/project3.dir/src/Roads.cpp.o
+.PHONY : src/Roads.cpp.o
+
+src/Roads.i: src/Roads.cpp.i
+.PHONY : src/Roads.i
+
+# target to preprocess a source file
+src/Roads.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project3.dir/build.make CMakeFiles/project3.dir/src/Roads.cpp.i
+.PHONY : src/Roads.cpp.i
+
+src/Roads.s: src/Roads.cpp.s
+.PHONY : src/Roads.s
+
+# target to generate assembly for a file
+src/Roads.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project3.dir/build.make CMakeFiles/project3.dir/src/Roads.cpp.s
+.PHONY : src/Roads.cpp.s
 
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
@@ -214,6 +390,30 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/project3.dir/build.make CMakeFiles/project3.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+src/visualization.o: src/visualization.cpp.o
+.PHONY : src/visualization.o
+
+# target to build an object file
+src/visualization.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project3.dir/build.make CMakeFiles/project3.dir/src/visualization.cpp.o
+.PHONY : src/visualization.cpp.o
+
+src/visualization.i: src/visualization.cpp.i
+.PHONY : src/visualization.i
+
+# target to preprocess a source file
+src/visualization.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project3.dir/build.make CMakeFiles/project3.dir/src/visualization.cpp.i
+.PHONY : src/visualization.cpp.i
+
+src/visualization.s: src/visualization.cpp.s
+.PHONY : src/visualization.s
+
+# target to generate assembly for a file
+src/visualization.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project3.dir/build.make CMakeFiles/project3.dir/src/visualization.cpp.s
+.PHONY : src/visualization.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -221,18 +421,39 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
+	@echo "... install"
+	@echo "... install/local"
+	@echo "... install/strip"
+	@echo "... list_install_components"
+	@echo "... package"
+	@echo "... package_source"
 	@echo "... rebuild_cache"
 	@echo "... copy_libxl_libs"
+	@echo "... update_mappings"
+	@echo "... glfw"
 	@echo "... project3"
+	@echo "... raylib"
+	@echo "... src/Djikstra.o"
+	@echo "... src/Djikstra.i"
+	@echo "... src/Djikstra.s"
 	@echo "... src/DownloadData.o"
 	@echo "... src/DownloadData.i"
 	@echo "... src/DownloadData.s"
+	@echo "... src/Input.o"
+	@echo "... src/Input.i"
+	@echo "... src/Input.s"
 	@echo "... src/Node.o"
 	@echo "... src/Node.i"
 	@echo "... src/Node.s"
+	@echo "... src/Roads.o"
+	@echo "... src/Roads.i"
+	@echo "... src/Roads.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/visualization.o"
+	@echo "... src/visualization.i"
+	@echo "... src/visualization.s"
 .PHONY : help
 
 

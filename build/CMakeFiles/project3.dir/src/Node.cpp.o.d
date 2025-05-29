@@ -1,6 +1,7 @@
 CMakeFiles/project3.dir/src/Node.cpp.o: \
   /Users/user/Documents/Uczelnia/_4Czwarty\ Semestr/Algorytmy\ II/Projekty/PR3/src/Node.cpp \
   /Users/user/Documents/Uczelnia/_4Czwarty\ Semestr/Algorytmy\ II/Projekty/PR3/src/../include/Node.h \
+  /Users/user/Documents/Uczelnia/_4Czwarty\ Semestr/Algorytmy\ II/Projekty/PR3/include/../include/Vec.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/iostream \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__assert \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__config \

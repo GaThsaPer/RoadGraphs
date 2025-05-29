@@ -38,6 +38,8 @@ node::Node::~Node() {}
 void node::Node::setSize(int iSize){
     if(city_size != 0)
         throw std::runtime_error("\nThe size has been set\n");
+    if(city_size < 0)
+        throw std::invalid_argument("\nSize of cities array is too small\n");
     cities = new CityNode [iSize];
     int temp = (iSize*(iSize-1))/2;
     connections = new ConnectionNode [temp];
@@ -49,7 +51,6 @@ void node::Node::setCity(int index, std::string str){
     cities[index].SetCity(str);
 }
 void node::Node::setConn(int index, int num, int firstID, int secoundID){
-    // std::cout << index << '\t' << num << '\t' << firstID << '\t' << secoundID << '\n';
     if(num < 0){
         printf("\n[%d] ", num);
         throw std::invalid_argument("Cost is too small\n");
@@ -67,6 +68,21 @@ void node::Node::setConn(int index, int num, int firstID, int secoundID){
         throw std::invalid_argument("Invalid secound city ID\n");
     }
     connections[index].SetValues(firstID, secoundID, num);
+}
+
+node::BaseNode& node::Node::GetValue(int index, TypeNode type){
+    switch(type){
+        case TypeNode::CITY:
+            if(index < 0 || index >= city_size)
+                throw std::invalid_argument("\nIncorrect index in GetValue() method\n");
+            return cities[index];
+        break;
+        case TypeNode::ROAD:
+            if(index < 0 || index >= GetConnectionsCount())
+                throw std::invalid_argument("\nIncorrect index in GetValue() method\n");
+            return connections[index];
+        break;
+    };
 }
 
 void node::Node::ShowAllCities(){
@@ -88,4 +104,26 @@ void node::Node::ShowAllConnections(){
         );
     }
 }
-
+void node::Node::ShowCostSortConnections(){
+    std::vector<VEC::vector2> conn;
+    for(int i=0; i<GetConnectionsCount(); i++){
+        conn.push_back(VEC::vector2(i, connections[i].GetCost()));
+    }
+    for(int i=1; i<conn.size(); i++){
+        for(int j=0; j<i; j++){
+            if(conn.at(i).y < conn.at(j).y){
+                auto temp = conn.at(i);
+                conn.erase(conn.begin() + i);
+                conn.insert(conn.begin() + j, temp);
+                break;
+            }
+        }
+    }
+    for(int i=0; i<conn.size(); i++){
+        printf("[%s]->[%s]={%d}\n", 
+            cities[connections[conn.at(i).x].FirstCity()].city().c_str(),
+            cities[connections[conn.at(i).x].SecoundCity()].city().c_str(),
+            conn.at(i).y
+        );
+    }
+}

@@ -1,0 +1,17 @@
+"filename", "language", "C++", "comment", "blank", "total"
+"/Users/user/Documents/Uczelnia/_4Czwarty Semestr/Algorytmy II/Projekty/PR3/include/Djikstra.h", "C++", 28, 1, 5, 34
+"/Users/user/Documents/Uczelnia/_4Czwarty Semestr/Algorytmy II/Projekty/PR3/include/DownloadData.h", "C++", 14, 0, 5, 19
+"/Users/user/Documents/Uczelnia/_4Czwarty Semestr/Algorytmy II/Projekty/PR3/include/Input.h", "C++", 18, 0, 2, 20
+"/Users/user/Documents/Uczelnia/_4Czwarty Semestr/Algorytmy II/Projekty/PR3/include/InputCodes.h", "C++", 114, 0, 4, 118
+"/Users/user/Documents/Uczelnia/_4Czwarty Semestr/Algorytmy II/Projekty/PR3/include/Node.h", "C++", 61, 0, 5, 66
+"/Users/user/Documents/Uczelnia/_4Czwarty Semestr/Algorytmy II/Projekty/PR3/include/Roads.h", "C++", 37, 1, 3, 41
+"/Users/user/Documents/Uczelnia/_4Czwarty Semestr/Algorytmy II/Projekty/PR3/include/Vec.h", "C++", 15, 0, 3, 18
+"/Users/user/Documents/Uczelnia/_4Czwarty Semestr/Algorytmy II/Projekty/PR3/include/visualization.h", "C++", 31, 0, 6, 37
+"/Users/user/Documents/Uczelnia/_4Czwarty Semestr/Algorytmy II/Projekty/PR3/src/Djikstra.cpp", "C++", -114, -2, -12, -128
+"/Users/user/Documents/Uczelnia/_4Czwarty Semestr/Algorytmy II/Projekty/PR3/src/DownloadData.cpp", "C++", -46, -43, -9, -98
+"/Users/user/Documents/Uczelnia/_4Czwarty Semestr/Algorytmy II/Projekty/PR3/src/Input.cpp", "C++", -41, 0, -5, -46
+"/Users/user/Documents/Uczelnia/_4Czwarty Semestr/Algorytmy II/Projekty/PR3/src/Node.cpp", "C++", -120, -3, -7, -130
+"/Users/user/Documents/Uczelnia/_4Czwarty Semestr/Algorytmy II/Projekty/PR3/src/Roads.cpp", "C++", -148, -11, -12, -171
+"/Users/user/Documents/Uczelnia/_4Czwarty Semestr/Algorytmy II/Projekty/PR3/src/main.cpp", "C++", -16, 0, -4, -20
+"/Users/user/Documents/Uczelnia/_4Czwarty Semestr/Algorytmy II/Projekty/PR3/src/visualization.cpp", "C++", -160, -6, -24, -190
+"Total", "-", -327, -63, -40, -430

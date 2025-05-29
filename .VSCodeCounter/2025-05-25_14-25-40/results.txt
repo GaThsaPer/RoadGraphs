@@ -1,0 +1,31 @@
+Date : 2025-05-25 14:25:40
+Directory : /Users/user/Documents/Uczelnia/_4Czwarty Semestr/Algorytmy II/Projekty/PR3/src
+Total : 7 files,  421 codes, 58 comments, 51 blanks, all 530 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| C++      |          7 |        421 |         58 |         51 |        530 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++--------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                             | files      | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                |          7 |        421 |         58 |         51 |        530 |
++--------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++--------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                                                                         | language | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| /Users/user/Documents/Uczelnia/_4Czwarty Semestr/Algorytmy II/Projekty/PR3/src/Djikstra.cpp      | C++      |          0 |          0 |          1 |          1 |
+| /Users/user/Documents/Uczelnia/_4Czwarty Semestr/Algorytmy II/Projekty/PR3/src/DownloadData.cpp  | C++      |         46 |         43 |          9 |         98 |
+| /Users/user/Documents/Uczelnia/_4Czwarty Semestr/Algorytmy II/Projekty/PR3/src/Input.cpp         | C++      |         41 |          0 |          5 |         46 |
+| /Users/user/Documents/Uczelnia/_4Czwarty Semestr/Algorytmy II/Projekty/PR3/src/Node.cpp          | C++      |        120 |          3 |          7 |        130 |
+| /Users/user/Documents/Uczelnia/_4Czwarty Semestr/Algorytmy II/Projekty/PR3/src/Roads.cpp         | C++      |         87 |          2 |          8 |         97 |
+| /Users/user/Documents/Uczelnia/_4Czwarty Semestr/Algorytmy II/Projekty/PR3/src/main.cpp          | C++      |         16 |          0 |          4 |         20 |
+| /Users/user/Documents/Uczelnia/_4Czwarty Semestr/Algorytmy II/Projekty/PR3/src/visualization.cpp | C++      |        111 |         10 |         17 |        138 |
+| Total                                                                                            |          |        421 |         58 |         51 |        530 |
++--------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+

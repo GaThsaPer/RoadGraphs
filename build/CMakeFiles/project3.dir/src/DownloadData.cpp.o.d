@@ -807,6 +807,7 @@ CMakeFiles/project3.dir/src/DownloadData.cpp.o: \
   /Users/user/Documents/Uczelnia/_4Czwarty\ Semestr/Algorytmy\ II/Projekty/PR3/external/libxl/include_cpp/ICorePropertiesT.h \
   /Users/user/Documents/Uczelnia/_4Czwarty\ Semestr/Algorytmy\ II/Projekty/PR3/external/libxl/include_cpp/ITableT.h \
   /Users/user/Documents/Uczelnia/_4Czwarty\ Semestr/Algorytmy\ II/Projekty/PR3/include/../include/Node.h \
+  /Users/user/Documents/Uczelnia/_4Czwarty\ Semestr/Algorytmy\ II/Projekty/PR3/include/../include/Vec.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/fstream \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/filesystem \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__filesystem/copy_options.h \
