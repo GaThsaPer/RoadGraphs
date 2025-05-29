@@ -20,6 +20,8 @@ class window{
         node::Node graph;
         std::vector<int> roads;
         std::vector<int> AdditionalRoads;
+        std::vector<int> NewConn;
+        std::vector<int> GPSConnection;
         int updateIndexCitiNode;
 
         Vector2 windowSize;
@@ -30,6 +32,7 @@ class window{
         bool MSTFlag;
         bool AddRoadFlag;
         bool DPDFlag;
+        bool GPSFlag;
         
         void Update(double DeltaTime);
         void Render() const;

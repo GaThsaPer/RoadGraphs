@@ -16,6 +16,7 @@ void window::Init(){
     MSTFlag = true;
     AddRoadFlag = true;
     DPDFlag = true;
+    GPSFlag = true;
 
     DD::Data Dwn(graph);
     Kruskal kr(graph);
@@ -26,8 +27,10 @@ void window::Init(){
     addR.CreateRoutes();
     AdditionalRoads = addR.GetNewRoads();
 
+    // graph.ShowAllCities();
+
     path::Djikstra dji(62, &graph, roads);
-    dji.FindRoute();
+    dji.FindRoute(true);
     std::vector<int> Avarage = dji.GetRoute();
     std::vector<int> JumpsNum = dji.GetJumps();
     float Avg = 0, Jp = 0;
@@ -43,7 +46,7 @@ void window::Init(){
     std::vector<int> tempVec = roads;
     tempVec.insert(tempVec.end(), AdditionalRoads.begin(), AdditionalRoads.end());
     dji.SetNewRoads(tempVec);
-    dji.FindRoute();
+    dji.FindRoute(true);
     Avarage.clear();
     JumpsNum.clear();
     Avarage = dji.GetRoute();
@@ -56,29 +59,21 @@ void window::Init(){
     }
     Jp /= (float)(JumpsNum.size() - 1);
     Avg /= (float)(Avarage.size() - 1);
-    printf("\nBefore: [%.4f]km, %.2f jumps\nAfter: [%.4f]km, %.2f jumps\n\n", Avg_1, Jp_1, Avg, Jp);
+    printf("\nBefore: [%.4f]km, %.2f jumps\nAfter: [%.4f]km, %.2f jumps\n", Avg_1, Jp_1, Avg, Jp);
+    // std::cout << "\n\n" << tempVec.size() << '\n';
+    CreateConnections CC(&graph, 20);
+    NewConn = CC.GetNewRandConn();
+    tempVec.insert(tempVec.end(), NewConn.begin(), NewConn.end());
+    CC.SetNewEx(tempVec);
+    CC.Create();
+    GPSConnection = CC.GetVecConn();
 
-
-    std::vector<int> WCities;
-    WCities.push_back(3);
-    WCities.push_back(5);
-    WCities.push_back(13);
-    WCities.push_back(14);
-    WCities.push_back(20);
-    WCities.push_back(21);
-    WCities.push_back(26);
-    WCities.push_back(32);
-    WCities.push_back(34);
-    WCities.push_back(38);
-    WCities.push_back(40);
-    WCities.push_back(45);
-    WCities.push_back(48);
-    WCities.push_back(54);
-    WCities.push_back(60);
-    WCities.push_back(62);
-    WCities.push_back(64);
-    WCities.push_back(68);
-
+    int sumGPS = 0;
+    for(int i=0; i<GPSConnection.size(); i++){
+        auto* temp = static_cast<node::ConnectionNode*>(&graph.GetValue(GPSConnection.at(i), node::TypeNode::ROAD));
+        sumGPS += temp->GetCost();
+    }
+    printf("GPS sum: %dkm\n\n\n", sumGPS);
 
     // kr.ShowTree();
     // graph.ShowAllCities();
@@ -100,6 +95,7 @@ void window::Init(){
             coord.x += 125.0f;
         }
     }
+
 }
 
 void window::Run(){
@@ -136,6 +132,8 @@ void window::Update(double DeltaTime){
         AddRoadFlag = !AddRoadFlag;
     if(input.GetKey(RayEngine::KeyCode::N3, RayEngine::InputState::Pressed))
         DPDFlag = !DPDFlag;
+    if(input.GetKey(RayEngine::KeyCode::N4, RayEngine::InputState::Pressed))
+        GPSFlag = !GPSFlag;
 
     if(input.GetMouseButton(RayEngine::MouseButton::Right, RayEngine::InputState::Pressed)){
         Vector2 pos = input.GetCursorPosition();
@@ -194,7 +192,24 @@ void window::RenderUI(){
         }
     }
     if(DPDFlag){
-
+        for(int i=0; i<NewConn.size(); i++){
+            auto* connection = static_cast<node::ConnectionNode*>(&graph.GetValue(NewConn.at(i), node::TypeNode::ROAD));
+            auto* firstCity = static_cast<node::CityNode*>(&graph.GetValue(connection->FirstCity(), node::TypeNode::CITY));
+            auto* secoundCity = static_cast<node::CityNode*>(&graph.GetValue(connection->SecoundCity(), node::TypeNode::CITY));
+            Vector2 startPos = {firstCity->GetX(), firstCity->GetY()};
+            Vector2 endPos = {secoundCity->GetX(), secoundCity->GetY()};
+            DrawLineEx(startPos, endPos, 3.0f, GREEN);
+        }
+    }
+    if(GPSFlag){
+        for(int i=0; i<GPSConnection.size(); i++){
+            auto* connection = static_cast<node::ConnectionNode*>(&graph.GetValue(GPSConnection.at(i), node::TypeNode::ROAD));
+            auto* firstCity = static_cast<node::CityNode*>(&graph.GetValue(connection->FirstCity(), node::TypeNode::CITY));
+            auto* secoundCity = static_cast<node::CityNode*>(&graph.GetValue(connection->SecoundCity(), node::TypeNode::CITY));
+            Vector2 startPos = {firstCity->GetX(), firstCity->GetY()};
+            Vector2 endPos = {secoundCity->GetX(), secoundCity->GetY()};
+            DrawLineEx(startPos, endPos, 3.0f, ORANGE);
+        }
     }
 
     for(int i=0; i<graph.GetCitySize(); i++){

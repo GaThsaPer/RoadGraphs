@@ -169,16 +169,13 @@ void AddRoads::CreateRoutes(){
 }
 
 
-CreateConnections::CreateConnections(node::Node *gr, int amount, std::vector<int> ex){
+CreateConnections::CreateConnections(node::Node *gr, int amount){
     if(gr == nullptr)
         throw std::invalid_argument("\nGraph value is nullptr in CreateConnections\n");
     graph = gr;
     if(amount < 0 || amount > graph->GetCitySize())
         throw std::invalid_argument("\nInvalid value as amount new connections in CreateConnections\n");
     Amount = amount;
-    if(ex.size() == 0 || ex.size() > graph->GetCitySize())
-        throw std::invalid_argument("Invalid vector existing roads in CreateConnections");
-    Existing = ex;
     WCities.push_back(3);
     WCities.push_back(5);
     WCities.push_back(13);
@@ -198,6 +195,202 @@ CreateConnections::CreateConnections(node::Node *gr, int amount, std::vector<int
     WCities.push_back(64);
     WCities.push_back(68);
 }
+void CreateConnections::SetNewEx(std::vector<int> newEx) {
+    Existing.clear();
+    Existing = newEx;
+    path::Djikstra dij(0, graph, Existing);
+    for(int i=0; i < graph->GetCitySize(); i++){
+        dij.SetCity(i);
+        dij.FindRoute(true);
+        cost.push_back(dij.GetRoute());
+        WCRoutes.push_back(dij.GetRouteAll());
+    }
+}
 void CreateConnections::Create(){
+    std::vector<std::vector<std::vector<int>>> adj = createList();
+    for(int i=0; adj.size() > WCities.size(); i++){
+        if(adj.at(i).size() == 0){
+            adj.erase(adj.begin() + i);
+            i--;
+        }
+    }
+    int mstCost = 0;
     
+    std::vector<std::vector<int>> MST = findMST(adj, mstCost);
+    
+    std::vector<bool> visited(graph->GetConnectionsCount(), false);
+    std::vector<std::vector<std::vector<int>>> mstAdj(adj.size());
+    std::vector<std::vector<int>> convMST;
+    for(int i=0; i<MST.size(); i++){
+        for(int j=0; j<WCities.size(); j++){
+            if(WCities.at(j) == MST.at(i).at(0)){
+                for(int k=0; k<WCities.size(); k++){
+                    if(WCities.at(k) == MST.at(i).at(1)){
+                        convMST.push_back({j, k, MST.at(i).at(2)});
+                    }
+                }
+            }
+        }
+    }
+    for(auto e: convMST){
+
+        mstAdj.at(e.at(0)).push_back({e.at(1), e.at(2)});
+        mstAdj.at(e.at(1)).push_back({e.at(0), e.at(2)});
+    }
+
+    std::vector<int> tour;/////////////////////////////////////
+    
+    eulerianCircuit(mstAdj, WCities.at(0), tour, visited, -1);
+    
+    tour.push_back(WCities.at(0));
+
+    std::vector<std::vector<int>> tourPath;
+
+    for(int i = 0; i < tour.size() - 1; i++) {
+        int u = tour[i];
+        int v = WCities.at(tour[i + 1]);
+        int weight = 0;
+
+        for(auto neighbor: adj[u]) {
+            if(neighbor[0] == v) {
+                weight = neighbor[1];
+                break;
+            }
+        }
+
+        tourPath.push_back({u, v, weight});
+    }
+    //WCRoutes
+    int potSize = 0;
+    for(int i=0; i<tourPath.size(); i++){
+        int from = tourPath.at(i).at(0);
+        int to = tourPath.at(i).at(1);
+    std::vector<VEC::vector2> newTraces;
+    for(int i=0; i<tourPath.size(); i++){
+        int from = tourPath.at(i).at(0);
+        int to = tourPath.at(i).at(1);
+        for(int j = 0; j<WCRoutes.at(from).at(to).size() - 1; j++){
+            newTraces.push_back({WCRoutes.at(from).at(to).at(j), WCRoutes.at(from).at(to).at(j+1)});
+        }
+        newTraces.push_back({WCRoutes.at(from).at(to).at(WCRoutes.at(from).at(to).size() - 1), to});
+    }
+    
+    std::vector<int> finalTab;
+    for(int i=0; i<newTraces.size(); i++){
+        int firstCity = newTraces.at(i).x;
+        int secoundCity = newTraces.at(i).y;
+        for(int j=0; j<graph->GetConnectionsCount(); j++){
+            auto* temp = static_cast<node::ConnectionNode*>(&graph->GetValue(j, node::TypeNode::ROAD));
+            if((temp->FirstCity() == firstCity && temp->SecoundCity() == secoundCity) || (temp->FirstCity() == secoundCity && temp->SecoundCity() == firstCity)){
+                finalTab.push_back(j);
+                break;
+            }
+        }
+    }
+    std::vector<int> copyElements;
+    for(int i=0; i<finalTab.size() - 1; i++){
+        for(int j=i+1; j<finalTab.size(); j++){
+            if(finalTab.at(i) == finalTab.at(j)){
+                finalTab.erase(finalTab.begin() + j);
+            }
+        }
+    }
+
+    newConnections = finalTab;
+    
+}
+}
+std::vector<int> CreateConnections::GetNewRandConn(){
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<> distr(0, graph->GetConnectionsCount());
+    std::vector<int> roads;
+    for(int i=0; i < Amount; i++){
+        roads.push_back(distr(gen));
+        for(int j=0; j<Existing.size(); j++){
+            if(roads.at(i) == Existing.at(j)){
+                roads.erase(roads.end());
+                i--;
+            }
+        }
+    }
+    return roads;
+}
+std::vector<std::vector<std::vector<int>>> CreateConnections::createList() {
+    int n = cost.size();
+    std::vector<std::vector<std::vector<int>>> adj(n);
+    for (int u = 0; u < n; u++) {
+        for (int v = 0; v < n; v++) {
+            if (u != v) {
+                if(inVec(u) && inVec(v)){
+                    adj[u].push_back({v, cost[u][v]});
+                }
+            }
+        }
+    }
+    return adj;
+}
+
+std::vector<std::vector<int>> CreateConnections::findMST(std::vector<std::vector<std::vector<int>>> &adj, int &mstCost) {
+    int n = adj.size();
+
+    // to marks the visited nodes
+    std::vector<bool> visited(n, false);
+
+    // stores edges of minimum spanning tree
+    std::vector<std::vector<int>> mstEdges ;
+
+    std::priority_queue<std::vector<int>, 
+        std::vector<std::vector<int>>, std::greater<std::vector<int>>> pq;
+
+    pq.push({0, WCities.at(0), -1});
+
+    while(!pq.empty()) {
+        std::vector<int> current = pq.top();
+        pq.pop();
+
+        int u = current[1];
+        int weight = current[0];
+        int parent = current[2];
+
+        if(visited[u]) continue;
+
+        mstCost += weight;
+        visited[u] = true;
+
+        if(parent != -1) {
+            mstEdges.push_back({u, parent, weight});
+        }
+
+        for(auto neighbor: adj[u]) {
+            int v = neighbor[0];
+            if(v == parent) continue;
+            int w = neighbor[1];
+
+            if(!visited[v]) {
+                pq.push({w, v, u});
+            }
+        }
+    }
+    return mstEdges;
+}
+void CreateConnections::eulerianCircuit(std::vector<std::vector<std::vector<int>>> &adj, int u, std::vector<int> &tour, std::vector<bool> &visited, int parent) {
+    visited[u] = true;
+    tour.push_back(u);
+
+    for(auto neighbor: adj[u]) {
+        int v = neighbor[0];
+        if(v == parent) continue;
+
+        if(!visited[v]) {
+            eulerianCircuit(adj, v, tour, visited, u);
+        }
+    }
+}
+
+bool CreateConnections::inVec(int val){
+    for(int i=0; i<WCities.size(); i++)
+        if(val == WCities.at(i))
+            return true;
+    return false;
 }

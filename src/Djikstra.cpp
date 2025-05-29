@@ -65,7 +65,7 @@ std::vector<std::vector<std::vector<int>>> path::Djikstra::constructAdj(std::vec
     }
     return adj;
 }
-void path::Djikstra::FindRoute(){
+void path::Djikstra::FindRoute(bool Flag){
     if(graph == nullptr || City < 0 || City > graph->GetCitySize())
         throw std::runtime_error("\nDon't have full data\n");
     
@@ -75,13 +75,19 @@ void path::Djikstra::FindRoute(){
     for(int i=0; i<graph->GetConnectionsCount(); i++){
         Base.push_back(i);
     }
-    std::vector<std::vector<std::vector<int>>> adj = constructAdj(MST);
+    std::vector<std::vector<std::vector<int>>> adj;
+    if(Flag)
+        adj = constructAdj(MST);
+    else
+        adj = constructAdj(Base);
+
 
     std::priority_queue<std::vector<int>, std::vector<std::vector<int>>, std::greater<std::vector<int>>> pq;
     pq.push({City, 0, 0});
     dist.at(City) = 0;
 
     std::vector<int> jump(graph->GetCitySize(), 0);
+    std::vector<std::vector<int>> tempRoutes(graph->GetCitySize());
 
     while(!pq.empty()){
         int cityID = pq.top()[0];
@@ -93,13 +99,15 @@ void path::Djikstra::FindRoute(){
             if((long long)dist.at(v) > (long long)dist.at(cityID) + cost){
                 dist.at(v) = dist.at(cityID) + cost;
                 jump.at(v) = jump.at(cityID) + 1;
+                tempRoutes.at(v) = tempRoutes.at(cityID);
+                tempRoutes.at(v).push_back(cityID);
                 pq.push({v, dist.at(v), jump.at(v)});
             }
         }
     }
     routeTable = dist;
     jumpsNum = jump;
-
+    routes = tempRoutes;
 }
 
 void path::Djikstra::ShowRoute(){
